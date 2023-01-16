@@ -7,7 +7,7 @@ const ScrollAni = () => {
     return images;
   }
   const html = document.documentElement;
-  const images = importAll(require.context('../asset/image', false, /\.png/));
+  const images = importAll(require.context('../asset/image/frame', false, /\.png/));
   const [position, setPosition] = useState(0);
   const canvasRef = useRef(null);
 
@@ -36,7 +36,6 @@ const ScrollAni = () => {
   function scrollActFunc(){
     const numb_img = 48
     var i = percentageFunc(numb_img);
-    console.log('percentageFunc', i);
     if(i<=numb_img){
         draw(i)
     }
