@@ -4,6 +4,7 @@ import './App.css';
 import NavBar from './components/NavBar'
 import ScrollAni from './components/ScrollAni';
 import Gallery from 'components/Gallery';
+import Directions from 'components/Directions';
 
 const App = () => {
     return (
@@ -11,6 +12,7 @@ const App = () => {
         <NavBar></NavBar>
         <ScrollAni></ScrollAni>
         <Gallery></Gallery>
+        <Directions></Directions>
       </div>
     );
 }
