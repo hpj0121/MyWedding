@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import galleryImage0 from '../asset/image/gallery/test_1.jpg';
 import galleryImage1 from '../asset/image/gallery/test_2.jpg';
 import galleryImage2 from '../asset/image/gallery/test_3.jpg';
@@ -6,40 +6,44 @@ import galleryImage3 from '../asset/image/gallery/test_4.jpg';
 import galleryImage4 from '../asset/image/gallery/test_5.jpg';
 
 const Gallery = () => {
-  function useWindowSize(){
-    const [size, setSize] = useState([0, 0]);
-    useLayoutEffect(() =>{
-      function updateSize() {
-        setSize([window.innerWidth, window.innerHeight]);
-      }
-      window.addEventListener('resize', updateSize);
-      updateSize();
-      return () => window.removeEventListener('resize', updateSize);
-    }, []);
-    return size;
-  }
 
-      return(
-        <div className='gallery_container'>
-            <ul className='gallery_item_box'>
-                <li className='gallery_item' >
-                  <img className='gallery_img' src={galleryImage0} alt='test' />
-                </li>
-                <li className='gallery_item' >
-                  <img className='gallery_img' src={galleryImage1} alt='test' />
-                </li>
-                <li className='gallery_item' >
-                  <img className='gallery_img' src={galleryImage2} alt='test' />
-                </li>
-                <li className='gallery_item' >
-                  <img className='gallery_img' src={galleryImage3} alt='test' />
-                </li>
-                <li className='gallery_item' >
-                  <img className='gallery_img' src={galleryImage4} alt='test' />
-                </li>
-            </ul>
-        </div>
-      );
+  const images = useRef([{src:galleryImage0}, {src:galleryImage1}, {src:galleryImage2}, {src:galleryImage3}, {src:galleryImage4}]);
+  const [current, setCurrent] = useState(0);
+  const [style, setStyle] = useState({marginLeft: `-${current}00%`});
+
+  const imgSize = useRef(5);
+  
+  const moveSlide = i =>{
+    let nextIndex = current + i;
+    if(nextIndex < 0) nextIndex = imgSize.current -1;else
+    if(nextIndex >= imgSize.current) nextIndex = 0;
+    setCurrent(nextIndex);
+  };
+
+  useEffect(()=>{
+    setStyle({marginLeft: `-${current}00%`});
+  },[current]);
+
+
+  return (
+    React.createElement("div", {className: "container"},
+    React.createElement("div", {className: "slide"},
+    React.createElement("div", {className:"btn", onClick:()=>{moveSlide(-1);}}, "<"),
+    React.createElement("div", {className:"gallery_container"},
+    React.createElement("div", {className:"gallery_box", style: style},
+    images.current.map((img, i) =>
+    React.createElement("img", {
+      key:i,
+      className:"gallery_img",
+      src:img.src
+    })))),
+
+    React.createElement("div", {className:"btn", onClick: ()=>{moveSlide(1);}}, ">")),
+    React.createElement("div", {className:"position"},
+    images.current.map((x, i)=>
+    React.createElement("div", {
+      key:i,
+      className: i === current ? 'dot current':'dot'})))));
   }
 
   export default Gallery;

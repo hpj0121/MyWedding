@@ -38,19 +38,19 @@ body {
   border-radius: 5px;
   transition: all 0.4s ease-in-out 0s;
 }
-/* 
-.gallery_item_box {
-  list-style: none;
-} */
 
-.gallery_item { 
-  list-style: none;
-  float: left;
+.gallery_container {
+  overflow: hidden;
+}
+
+.gallery_box {
+  display: flex;
 }
 
 .gallery_img {
+  width: 720px;
   object-fit: contain;
-  width: 100%;
+  flex: none;
 }
 
 canvas {
