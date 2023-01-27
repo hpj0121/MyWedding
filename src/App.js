@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './App.css';
 import NavBar from './components/NavBar'
 import ScrollAni from './components/ScrollAni';
-import Gallery from 'components/Gallery';
 import Directions from 'components/Directions';
 import WeddingHall from 'components/WeddingHall';
 import AccountNumber from 'components/AccountNumber';
 import ShareKakao from 'components/ShareKakao';
+import SimpleSlider from 'components/SimpleSlider';
 
 const App = () => {
     return (
       <div className="container">
         <NavBar></NavBar>
         <ScrollAni></ScrollAni>
-        <Gallery></Gallery>
+        <SimpleSlider></SimpleSlider>
         <Directions></Directions>
         <WeddingHall></WeddingHall>
         <AccountNumber></AccountNumber>
