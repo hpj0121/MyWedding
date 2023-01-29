@@ -19,10 +19,10 @@ const ScrollAni = () => {
     return ()=> {
         window.removeEventListener("scroll", ()=>setPosition(window.scrollY));
     };
-}, []);
+  }, []);
 
   function draw(image_seq) {
-    const canvas = canvasRef.current;      
+    const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     const image = new Image();
     const image_index = 'scene_'+image_seq+'.png'
@@ -52,7 +52,7 @@ const ScrollAni = () => {
     return frameIndex;
   }
   
-    return <canvas ref={canvasRef} width="600" height="1072"></canvas>;
-  };
+  return <div className="canvas"><canvas className="sticky" ref={canvasRef} width="600" height="300"></canvas></div>;
+};
   
   export default ScrollAni;
