@@ -36,8 +36,8 @@ const App = () => {
         <SimpleSlider galleryRef={galleryRef}></SimpleSlider>
         <Directions mapRef={mapRef}></Directions>
         <WeddingHall></WeddingHall>
-        <AccountNumber></AccountNumber>
         <ShareKakao></ShareKakao>
+        <AccountNumber></AccountNumber>
       </div>
     );
 }

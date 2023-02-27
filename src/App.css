@@ -95,3 +95,21 @@ canvas {
   /* position: relative; */
   /* top: 60rem; */
 }
+
+.componentTitle{
+  padding: 2rem 0;
+}
+
+.accountWrapper{
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.accountButtonWrapper{
+  display: flex;
+  justify-content: space-around;
+}
+
+.accountButton{
+  
+}
