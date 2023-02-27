@@ -8,7 +8,7 @@ import galleryImage2 from '../asset/image/gallery/test_3.jpg';
 import galleryImage3 from '../asset/image/gallery/test_4.jpg';
 import galleryImage4 from '../asset/image/gallery/test_5.jpg';
 
-const SimpleSlider = () => {
+const SimpleSlider = (props) => {
     const settings = {
         dots: true,
         infinite: true,
@@ -18,7 +18,7 @@ const SimpleSlider = () => {
     };
 
     return (
-        <div className="gallery_container">
+        <div className="gallery_container" ref={props.galleryRef}>
         <Slider {...settings}>
           <div>
           <img className="gallery_img" src={ galleryImage0 } alt='test' />

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 const {kakao} = window;
-const Directions = () => {
+const Directions = (props) => {
     useEffect(()=>{
         const container = document.getElementById('map');
         const options = {
@@ -18,7 +18,7 @@ const Directions = () => {
     }, [])
     
     return (
-        <div id="map" className="kakaoMap"></div>
+        <div id="map" className="kakaoMap" ref={props.mapRef}></div>
     )
 };
 
