@@ -24,12 +24,14 @@ const ScrollAni = () => {
   function draw(image_seq) {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
+    resizeCanvasToDisplaySize(ctx.canvas)
     const image = new Image();
     const image_index = 'scene_'+image_seq+'.png'
     image.src = images[image_index];
 
+
     image.onload = function(){
-      ctx.drawImage(image, 0, 0)
+      ctx.drawImage(image, 0, 0, document.body.clientWidth, 1500)
     }
   }
 
@@ -51,8 +53,26 @@ const ScrollAni = () => {
     );
     return frameIndex;
   }
+
+  function resizeCanvasToDisplaySize(canvas) {
+
+
+
+    // look up the size the canvas is being displayed
+    const width = window.document.documentElement.clientWidth;
+    const height = window.document.documentElement.clientHeight;
+ 
+    // If it's resolution does not match change it
+    if (canvas.width !== width || canvas.height !== height) {
+      canvas.width = width;
+      canvas.height = height;
+      return true;
+    }
+ 
+    return false;
+ }
   
-  return <div className="canvas"><canvas className="sticky" ref={canvasRef} width="600" height="300"></canvas></div>;
+  return <div className="canvas"><canvas className="sticky" ref={canvasRef} ></canvas></div>;
 };
   
   export default ScrollAni;
