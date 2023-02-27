@@ -31,7 +31,7 @@ const ScrollAni = () => {
 
 
     image.onload = function(){
-      ctx.drawImage(image, 0, 0, document.body.clientWidth, 1500)
+      ctx.drawImage(image, 0, 0, document.body.clientWidth, document.body.clientHeight)
     }
   }
 
@@ -45,7 +45,7 @@ const ScrollAni = () => {
 
   var percentageFunc = function(frameCount){
     const scrollTop = html.scrollTop;
-    const maxScrollTop = html.scrollheight = window.innerHeight;
+    const maxScrollTop = html.scrollheight = window.innerHeight -500;
     const scrollFraction = scrollTop / maxScrollTop;
     const frameIndex = Math.min(
       frameCount - 1,
@@ -55,12 +55,9 @@ const ScrollAni = () => {
   }
 
   function resizeCanvasToDisplaySize(canvas) {
-
-
-
     // look up the size the canvas is being displayed
     const width = window.document.documentElement.clientWidth;
-    const height = window.document.documentElement.clientHeight;
+    const height = document.body.clientHeight;
  
     // If it's resolution does not match change it
     if (canvas.width !== width || canvas.height !== height) {
