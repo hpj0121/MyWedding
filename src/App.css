@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200;400;600&display=swap');
+
+
 html {
   height: 100%;
   width: 100%;
@@ -7,6 +10,7 @@ body {
   min-height: 100%;
   width: 100%;
   background: rgb(201, 255, 213);
+  font-family: 'IBM Plex Sans KR', sans-serif;
 }
 
 .container{
@@ -28,6 +32,7 @@ body {
   justify-content: space-evenly;
   align-items: center;
   height: -webkit-fill-available;
+  font-weight: 600;
 }
 
 .line {
