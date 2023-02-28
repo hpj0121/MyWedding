@@ -29,14 +29,13 @@ const ScrollAni = () => {
     const image_index = 'scene_'+image_seq+'.png'
     image.src = images[image_index];
 
-
     image.onload = function(){
       ctx.drawImage(image, 0, 0, document.body.clientWidth, document.body.clientHeight)
     }
   }
 
   function scrollActFunc(){
-    const numb_img = 48
+    const numb_img = 75;
     var i = percentageFunc(numb_img);
     if(i<=numb_img){
         draw(i)
