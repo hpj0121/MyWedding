@@ -9,6 +9,7 @@ import WeddingHall from 'components/WeddingHall';
 import AccountNumber from 'components/AccountNumber';
 import ShareKakao from 'components/ShareKakao';
 import SimpleSlider from 'components/SimpleSlider';
+import Invitation from 'components/Invitation';
 
 const App = () => {
     const galleryRef = useRef(null);
@@ -32,6 +33,7 @@ const App = () => {
       <div className="container">
         <NavBar onClickNavMenu={onClickNavMenu}></NavBar>
         <ScrollAni></ScrollAni>
+        <Invitation></Invitation>
         <SimpleSlider galleryRef={galleryRef}></SimpleSlider>
         <Directions mapRef={mapRef}></Directions>
         <ShareKakao></ShareKakao>
