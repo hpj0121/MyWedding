@@ -1,7 +1,9 @@
 import { useEffect } from "react";
+import useScrollFadeIn from "hooks/useScrollFadeIn";
 
 const {kakao} = window;
 const Directions = (props) => {
+    const animatedItem = useScrollFadeIn();
     useEffect(()=>{
         const container = document.getElementById('map');
         const options = {
@@ -18,7 +20,7 @@ const Directions = (props) => {
     }, [])
     
     return (
-        <div className="component">
+        <div className="component" {...animatedItem}>
             <div className="componentTitle" ref={props.mapRef}>오시는 길</div>
             <div id="map" className="kakaoMap"></div>
         </div>

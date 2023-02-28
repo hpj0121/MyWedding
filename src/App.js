@@ -25,7 +25,6 @@ const App = () => {
       const { menu } = e.currentTarget.dataset;
       if(menu === "gallery") galleryRef.current.scrollIntoView({ behavior: 'smooth' });
       else if(menu === "map") mapRef.current.scrollIntoView({ behavior: 'smooth' });
-      else if(menu === "map") mapRef.current.scrollIntoView();
       else scrollToTop();
     }
 

@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { brideInfo, groomInfo } from "./_constants";
+import useScrollFadeIn from "hooks/useScrollFadeIn";
 import Portal from "./Portal";
 import Modal from "./Modal";
 
 const AccountNumber = () => {
+    const animatedItem = useScrollFadeIn();
     const [openModal, setOpenModal] = useState({ type:"", status: false })
 
     const onClickModal = (e) => {
@@ -22,8 +24,8 @@ const AccountNumber = () => {
                 </Modal> 
             }
         </Portal>
-            <div className="accountWrapper">
-                <div className="componentTitle">신랑&신부에게 마음 전하기</div>
+            <div className="accountWrapper" {...animatedItem}>
+                <div className="componentTitle">마음 전하실 곳</div>
                 <div className="accountButtonWrapper">
                     <button className="accountButton" data-type="groom" onClick={onClickModal}>
                         신랑측 계좌번호

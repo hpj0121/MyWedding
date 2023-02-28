@@ -7,8 +7,10 @@ import galleryImage1 from '../asset/image/gallery/test_2.jpg';
 import galleryImage2 from '../asset/image/gallery/test_3.jpg';
 import galleryImage3 from '../asset/image/gallery/test_4.jpg';
 import galleryImage4 from '../asset/image/gallery/test_5.jpg';
+import useScrollFadeIn from "hooks/useScrollFadeIn";
 
 const SimpleSlider = (props) => {
+    const animatedItem = useScrollFadeIn();
     const settings = {
         dots: false,
         slidesToShow: 1,
@@ -16,7 +18,7 @@ const SimpleSlider = (props) => {
     };
 
     return (
-      <div className="component">
+      <div className="component" {...animatedItem}>
           <div className="componentTitle" ref={props.galleryRef}>사진</div>
           <div className="gallery_container">
           <Slider {...settings}>
