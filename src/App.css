@@ -16,6 +16,7 @@ button{
 }
 
 .container{
+  padding-bottom: 5rem;
 }
 
 .image_body {
@@ -52,12 +53,17 @@ button{
 
 .gallery_container{
   position: relative;
-  top: 2rem;
   height: fit-content;
 }
 
 .gallery_container >:first-child >:nth-child(3){
   display: none !important;
+}
+
+.gallery_container >div>div>div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .gallery_img {
@@ -98,16 +104,20 @@ canvas {
   /* top: 60rem; */
 }
 
+.component{
+  padding: 0 5%;
+}
+
 .componentTitle{
   text-align: center;
   font-size: 1.3rem;
   font-weight: 400;
-  margin: 1.5rem 0;
+  margin: 5rem 0 1.5rem 0;
 }
 
 .accountWrapper{
   text-align: center;
-  padding: 3rem 0;
+  padding: 0 5%;
 }
 
 .accountButtonWrapper{
@@ -139,11 +149,12 @@ canvas {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #dddddd;
+  background-color: #eeeeee;
   width: 70%;
   height: fit-content;
   margin: 0 auto;
   padding: 1rem;
+  border-radius: 5px;
 }
 
 .accWrapper{
@@ -161,7 +172,7 @@ canvas {
 }
 
 .copyBtn{
-  background-color: #777777;
+  background-color: #999999;
   color: #ffffff;
   padding: .2rem 1rem;
   white-space: nowrap;
@@ -174,7 +185,7 @@ canvas {
   width: 70%;
   text-align: center;
   padding: 0.6rem 0;
-  margin: 0.5rem 0;
+  margin: 1rem 0;
   border-radius: 5px;
 }
 
@@ -189,7 +200,7 @@ canvas {
 }
 
 .weddingHallInfo{
-  padding: 1rem 0;
+  padding: 1rem 5%;
 }
 
 .weddingHallInfo >div{
@@ -205,4 +216,5 @@ canvas {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 5%;
 }
