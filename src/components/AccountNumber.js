@@ -1,26 +1,43 @@
-import AccountButton from "./AccountButton";
+import { useState, useEffect } from "react";
+import { brideInfo, groomInfo } from "./_constants";
+import Portal from "./Portal";
+import Modal from "./Modal";
 
 const AccountNumber = () => {
+    const [openModal, setOpenModal] = useState({ type:"", status: false })
 
-    const groomInfo ={ to:"신랑",
-    acc: { type: "본인", accNum: "111-111-111111" },
-    acc: { type: "혼주 계좌 (아버지)", accNum: "111-111-111111" }
+    const onClickModal = (e) => {
+        const { type } = e.currentTarget.dataset;
+        setOpenModal((prev) => ({ ...prev, type: type, status: !openModal?.status }))
     }
 
-    const brideInfo ={ to:"신부",
-    acc: { type: "본인", accNum: "111-111-111111" },
-    acc: { type: "혼주 계좌 (아버지)", accNum: "111-111-111111" },
-    acc: { type: "혼주 계좌 (어머니)", accNum: "111-111-111111" }
-    }
+    useEffect(() => {
+        console.log('openModal',openModal)
+    }, [openModal])
 
     return (
-        <div className="accountWrapper">
-            <div className="componentTitle">신랑&신부에게 마음 전하기</div>
-            <div className="accountButtonWrapper">
-                <AccountButton info={groomInfo}></AccountButton>
-                <AccountButton info={brideInfo}></AccountButton>
+        <>
+        <Portal openModal={openModal?.status}>
+            {
+            openModal?.status && 
+                <Modal
+                    info={openModal?.type === "groom" ? groomInfo : brideInfo } 
+                    onClickModal={onClickModal} >
+                </Modal> 
+            }
+        </Portal>
+            <div className="accountWrapper">
+                <div className="componentTitle">신랑&신부에게 마음 전하기</div>
+                <div className="accountButtonWrapper">
+                    <button className="accountButton" data-type="groom" onClick={onClickModal}>
+                        신랑측 계좌번호
+                    </button>
+                    <button className="accountButton" data-type="bride" onClick={onClickModal}>
+                        신부측 계좌번호
+                    </button>
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 
