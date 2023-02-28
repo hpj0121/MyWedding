@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200;400;600&display=swap');
 
-
 html {
   height: 100%;
   width: 100%;
@@ -9,7 +8,6 @@ html {
 body {
   min-height: 100%;
   width: 100%;
-  background: rgb(201, 255, 213);
   font-family: 'IBM Plex Sans KR', sans-serif;
 }
 
@@ -36,7 +34,7 @@ button{
   justify-content: space-evenly;
   align-items: center;
   height: -webkit-fill-available;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .line {
@@ -101,7 +99,10 @@ canvas {
 }
 
 .componentTitle{
-  padding: 2rem 0;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin: 1.5rem 0;
 }
 
 .accountWrapper{
@@ -116,11 +117,10 @@ canvas {
 
 .accountButton{
   all: unset;
-  background-color: #0ABAB5;
+  background-color: #F78E85;
   padding: 0.8rem 1rem;
   color: #ffffff;
   border-radius: 5px;
-  font-weight: 600;
 }
 
 .modalBack{
@@ -169,7 +169,7 @@ canvas {
 }
 
 .modalCloseBtn{
-  background-color: #0ABAB5;
+  background-color: #F78E85;
   color: #ffffff;
   width: 70%;
   text-align: center;
@@ -186,4 +186,23 @@ canvas {
 .flexColumn{
   display: flex;
   flex-direction: column;
+}
+
+.weddingHallInfo{
+  padding: 1rem 0;
+}
+
+.weddingHallInfo >div{
+  text-align: center;
+}
+
+.weddingHallInfo >:first-child{
+  font-size: 1.2rem;
+  padding: 0.5rem 0;
+}
+
+.shareKakaoBtnWrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

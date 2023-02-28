@@ -11,10 +11,6 @@ const AccountNumber = () => {
         setOpenModal((prev) => ({ ...prev, type: type, status: !openModal?.status }))
     }
 
-    useEffect(() => {
-        console.log('openModal',openModal)
-    }, [openModal])
-
     return (
         <>
         <Portal openModal={openModal?.status}>

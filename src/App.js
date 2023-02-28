@@ -35,8 +35,8 @@ const App = () => {
         <ScrollAni></ScrollAni>
         <SimpleSlider galleryRef={galleryRef}></SimpleSlider>
         <Directions mapRef={mapRef}></Directions>
-        <WeddingHall></WeddingHall>
         <ShareKakao></ShareKakao>
+        <WeddingHall></WeddingHall>
         <AccountNumber></AccountNumber>
       </div>
     );

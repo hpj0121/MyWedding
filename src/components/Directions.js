@@ -18,7 +18,10 @@ const Directions = (props) => {
     }, [])
     
     return (
-        <div id="map" className="kakaoMap" ref={props.mapRef}></div>
+        <>
+            <div className="componentTitle" ref={props.mapRef}>오시는 길</div>
+            <div id="map" className="kakaoMap"></div>
+        </>
     )
 };
 

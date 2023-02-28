@@ -18,7 +18,9 @@ const SimpleSlider = (props) => {
     };
 
     return (
-        <div className="gallery_container" ref={props.galleryRef}>
+      <>
+        <div className="componentTitle" ref={props.galleryRef}>사진</div>
+        <div className="gallery_container">
         <Slider {...settings}>
           <div>
           <img className="gallery_img" src={ galleryImage0 } alt='test' />
@@ -37,6 +39,7 @@ const SimpleSlider = (props) => {
           </div>
         </Slider>
       </div>
+      </>
     );
 };
 
