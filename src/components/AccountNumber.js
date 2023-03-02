@@ -3,6 +3,8 @@ import { brideInfo, groomInfo } from "./_constants";
 import useScrollFadeIn from "hooks/useScrollFadeIn";
 import Portal from "./Portal";
 import Modal from "./Modal";
+import f5 from "../asset/image/icons/f5.png"
+import f6 from "../asset/image/icons/f6.png"
 
 const AccountNumber = () => {
     const animatedItem = useScrollFadeIn();
@@ -25,7 +27,11 @@ const AccountNumber = () => {
             }
         </Portal>
             <div className="accountWrapper" {...animatedItem}>
-                <div className="componentTitle">마음 전하실 곳</div>
+                <div className="componentTitle">
+                    <img src={f5} alt="flower icon"/>
+                    마음 전하실 곳
+                    <img src={f6} alt="flower icon"/>
+                </div>
                 <div className="accountButtonWrapper">
                     <button className="accountButton" data-type="groom" onClick={onClickModal}>
                         신랑측 계좌번호

@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import useScrollFadeIn from "hooks/useScrollFadeIn";
+import f3 from "../asset/image/icons/f3.png"
+import f4 from "../asset/image/icons/f4.png"
 
 const {kakao} = window;
 const Directions = (props) => {
@@ -21,7 +23,11 @@ const Directions = (props) => {
     
     return (
         <div className="component" {...animatedItem}>
-            <div className="componentTitle" ref={props.mapRef}>오시는 길</div>
+            <div className="componentTitle" ref={props.mapRef}>
+                <img src={f3} alt="flower icon"/>
+                    오시는 길
+                <img src={f4} alt="flower icon"/>
+            </div>
             <div id="map" className="kakaoMap"></div>
         </div>
     )
