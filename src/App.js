@@ -9,6 +9,7 @@ import WeddingHall from 'components/WeddingHall';
 import AccountNumber from 'components/AccountNumber';
 import ShareKakao from 'components/ShareKakao';
 import SimpleSlider from 'components/SimpleSlider';
+import Invitation from 'components/Invitation';
 
 const App = () => {
     const galleryRef = useRef(null);
@@ -25,7 +26,6 @@ const App = () => {
       const { menu } = e.currentTarget.dataset;
       if(menu === "gallery") galleryRef.current.scrollIntoView({ behavior: 'smooth' });
       else if(menu === "map") mapRef.current.scrollIntoView({ behavior: 'smooth' });
-      else if(menu === "map") mapRef.current.scrollIntoView();
       else scrollToTop();
     }
 
@@ -33,10 +33,11 @@ const App = () => {
       <div className="container">
         <NavBar onClickNavMenu={onClickNavMenu}></NavBar>
         <ScrollAni></ScrollAni>
+        <Invitation></Invitation>
         <SimpleSlider galleryRef={galleryRef}></SimpleSlider>
         <Directions mapRef={mapRef}></Directions>
-        <WeddingHall></WeddingHall>
         <ShareKakao></ShareKakao>
+        <WeddingHall></WeddingHall>
         <AccountNumber></AccountNumber>
       </div>
     );
