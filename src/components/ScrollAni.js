@@ -30,7 +30,8 @@ const ScrollAni = () => {
     image.src = images[image_index];
 
     image.onload = function(){
-      ctx.drawImage(image, 0, 0, document.body.clientWidth, document.body.clientHeight)
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(image, 0, 0, document.body.clientWidth, document.body.clientHeight);
     }
   }
 
