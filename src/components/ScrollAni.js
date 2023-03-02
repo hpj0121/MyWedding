@@ -35,7 +35,7 @@ const ScrollAni = () => {
   }
 
   function scrollActFunc(){
-    const numb_img = 75;
+    const numb_img = 81;
     var i = percentageFunc(numb_img);
     if(i<=numb_img){
         draw(i)
