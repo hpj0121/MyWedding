@@ -6,9 +6,11 @@ const ScrollAni = () => {
     r.keys().map(item => {images[item.replace('./', '')] = r(item); });
     return images;
   }
+  const NUMB_IMG = 81;
   const html = document.documentElement;
   const images = importAll(require.context('../asset/image/frame', false, /\.png/));
   const [position, setPosition] = useState(0);
+  const [isCanvasFixed, setIsCanvasFixed] = useState(true);
   const canvasRef = useRef(null);
 
   useEffect(()=>{
@@ -22,6 +24,9 @@ const ScrollAni = () => {
   }, []);
 
   function draw(image_seq) {
+    if(image_seq >= NUMB_IMG -1) setIsCanvasFixed(false);
+    else setIsCanvasFixed(true);
+
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     resizeCanvasToDisplaySize(ctx.canvas)
@@ -36,16 +41,15 @@ const ScrollAni = () => {
   }
 
   function scrollActFunc(){
-    const numb_img = 81;
-    var i = percentageFunc(numb_img);
-    if(i<=numb_img){
+    var i = percentageFunc(NUMB_IMG);
+    if(i<=NUMB_IMG){
         draw(i)
     }
   }
 
   var percentageFunc = function(frameCount){
     const scrollTop = html.scrollTop;
-    const maxScrollTop = html.scrollheight = window.innerHeight -500;
+    const maxScrollTop = html.scrollheight = window.innerHeight;
     const scrollFraction = scrollTop / maxScrollTop;
     const frameIndex = Math.min(
       frameCount - 1,
@@ -69,7 +73,7 @@ const ScrollAni = () => {
     return false;
  }
   
-  return <div className="canvas"><canvas className="sticky" ref={canvasRef} ></canvas></div>;
+  return <div className="canvas"><canvas className={isCanvasFixed ? "positionFixed" : "positionAbsolute"} ref={canvasRef} ></canvas></div>;
 };
   
   export default ScrollAni;
