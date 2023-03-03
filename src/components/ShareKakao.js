@@ -47,7 +47,7 @@ export default function ShareKakao() {
   
     return (
       <div className="shareKakaoBtnWrapper">
-        <button className="modalCloseBtn" onClick={kakaoButton}>카카오 공유하기</button>
+        <button className="kakaoShareBtn" onClick={kakaoButton}>카카오 공유하기</button>
       </div>
     )
   }
