@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 const Modal = (props) => {
+
+  const [showToastMsg, setShowToastMsg] = useState(false);
     const onClickCopyAccNum = text => {
         const accNum = text.replace(/-/g, '');
         // 흐음 1.
@@ -9,7 +11,7 @@ const Modal = (props) => {
           navigator.clipboard
             .writeText(accNum)
             .then(() => {
-              alert("클립보드에 복사되었습니다.");
+              setShowToastMsg(true);
             })
             .catch(() => {
               alert("복사를 다시 시도해주세요.");
@@ -37,12 +39,18 @@ const Modal = (props) => {
           document.execCommand("copy");
           // 흐름 6.
           document.body.removeChild(textarea);
-          alert("클립보드에 복사되었습니다.");
+          setShowToastMsg(true);
         }
       };
 
+    useEffect(() => {
+        const timeout = setTimeout(() => setShowToastMsg(false), 3000);
+        return () => clearTimeout(timeout);
+    }, [showToastMsg]);
+
     return (
         <div className="modalBack">
+          {showToastMsg && <div id="snackbar" className="show">클립보드에 복사되었습니다.</div>}
             <div className="modalWrapper">
                 <h3>{props?.info?.type}측 계좌번호</h3>
                 <div className="accWrapper">
