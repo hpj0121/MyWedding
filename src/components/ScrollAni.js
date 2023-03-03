@@ -14,6 +14,7 @@ const ScrollAni = () => {
   const canvasRef = useRef(null);
 
   useEffect(()=>{
+    draw(1)
     window.addEventListener("scroll", ()=>{
       setPosition(window.scrollY)
       requestAnimationFrame(() => scrollActFunc());
