@@ -2,11 +2,12 @@ import React from "react";
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import galleryImage0 from '../asset/image/gallery/test_1.jpg';
-import galleryImage1 from '../asset/image/gallery/test_2.jpg';
-import galleryImage2 from '../asset/image/gallery/test_3.jpg';
-import galleryImage3 from '../asset/image/gallery/test_4.jpg';
-import galleryImage4 from '../asset/image/gallery/test_5.jpg';
+import galleryImage0 from '../asset/image/gallery/gal_1.webp';
+import galleryImage1 from '../asset/image/gallery/gal_2.webp';
+import galleryImage2 from '../asset/image/gallery/gal_3.webp';
+import galleryImage3 from '../asset/image/gallery/gal_4.webp';
+import galleryImage4 from '../asset/image/gallery/gal_5.webp';
+import galleryImage5 from '../asset/image/gallery/gal_6.webp';
 import f1 from "../asset/image/icons/f1.png"
 import f2 from "../asset/image/icons/f2.png"
 import useScrollFadeIn from "hooks/useScrollFadeIn";
@@ -42,6 +43,9 @@ const SimpleSlider = (props) => {
             </div>
             <div>
             <img className="gallery_img" src={ galleryImage4 } alt='test' />
+            </div>
+            <div>
+            <img className="gallery_img" src={ galleryImage5 } alt='test' />
             </div>
           </Slider>
         </div>
