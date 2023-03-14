@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef, useState, useCallback} from 'react';
 import scene_0 from "../asset/image/frame/scene_0.webp"
 import scene_1 from "../asset/image/frame/scene_1.webp"
 import scene_2 from "../asset/image/frame/scene_2.webp"
@@ -124,7 +124,6 @@ const ScrollAni = () => {
   const NUMB_IMG = 119;
   const html = document.documentElement;
   // const images = importAll(require.context('../asset/image/frame', false, /\.jpg/));
-  const [position, setPosition] = useState(0);
   const [isCanvasFixed, setIsCanvasFixed] = useState(true);
   const canvasRef = useRef(null);
 
@@ -141,18 +140,12 @@ const ScrollAni = () => {
     scene_101, scene_102, scene_103, scene_104, scene_105, scene_106, scene_107, scene_108, scene_109, scene_110,
     scene_111, scene_112, scene_113, scene_114]
 
-  console.log("images: ", images);
-
   useEffect(()=>{
-    draw(1)
-    window.addEventListener("scroll", ()=>{
-      setPosition(window.scrollY)
-      requestAnimationFrame(() => scrollActFunc());
-    });
-    return ()=> {
-        window.removeEventListener("scroll", ()=>setPosition(window.scrollY));
-    };
-  }, []);
+    window.addEventListener("scroll", scrollActFunc);
+      return ()=> {
+          window.removeEventListener("scroll", scrollActFunc);
+      };
+    }, []);
 
   function draw(image_seq) {
     if(image_seq >= NUMB_IMG -1) setIsCanvasFixed(false);
@@ -164,19 +157,18 @@ const ScrollAni = () => {
     const image = new Image();
     const image_index = 'scene_'+image_seq+'.png'
     image.src = images[image_seq];
-
     image.onload = function(){
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(image, 0, 0, document.body.clientWidth, document.body.clientHeight);
     }
   }
 
-  function scrollActFunc(){
+  const scrollActFunc = useCallback(() => {
     var i = percentageFunc(NUMB_IMG);
     if(i<=NUMB_IMG){
         draw(i)
     }
-  }
+  },[]);
 
   var percentageFunc = function(frameCount){
     const scrollTop = html.scrollTop;
